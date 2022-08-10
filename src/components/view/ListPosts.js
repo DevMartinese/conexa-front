@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { Grid, GridItem, Box, Stack, Text, Container } from '@chakra-ui/react';
+import { Grid, GridItem, Box, Stack, Text } from '@chakra-ui/react';
 import AuthContext from '../../context/auth/authContext';
 
 const ListPosts = () => {

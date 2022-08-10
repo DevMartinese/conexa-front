@@ -60,9 +60,7 @@ const View = () => {
                 </Stack>
 
                 <Stack alignItems='center' padding={'10px'}>
-                  <Heading as='h6' size='sm'>
-                    WELCOME {usuario.username}
-                  </Heading>
+                  {usuario ? (<Heading as='h6' size='sm'> WELCOME {usuario.username} </Heading>) : <Heading as='h6' size='sm'> WELCOME To Conexa</Heading> }
                 </Stack>
               </Stack>
             </Stack>
@@ -71,7 +69,7 @@ const View = () => {
       </Stack>
 
       <Routes>
-        <Route path="/" element={<ListPosts />} />
+        <Route exact path="/" element={<ListPosts />} />
         <Route path="photos" element={<ListPhotos />} />
         <Route path="posts" element={<ListPosts />} />
       </Routes>

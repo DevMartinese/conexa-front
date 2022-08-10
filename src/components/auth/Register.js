@@ -38,6 +38,8 @@ const Register = () => {
     if (mensaje) {
       mostrarAlerta(mensaje.msg, mensaje.categoria);
     }
+
+    //eslint-disable-next-line
   }, [mensaje]);
 
   if (autenticado) {
