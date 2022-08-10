@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+import RutaPrivada from "./components/auth/RutaPrivada";
+
 import Login from "./components/auth/Login";
 import Register from './components/auth/Register';
-import ViewTest from './components/view/NavBar';
-import ListPosts from './components/view/ListPosts';
-import ListPhotos from './components/view/ListPhotos';
+import View from './components/view/View';
 
 import AuthState from './context/auth/authState';
 import AlertaState from './context/alert/alertState';
@@ -16,11 +16,11 @@ function App() {
       <AuthState>
         <Router>
           <Routes>
-            <Route exact path="login" element={<Login />} />
-            <Route exact path="register" element={<Register />} />
-            <Route path="view" element={<ViewTest />} />
-            <Route path="posts" element={<ListPosts />} />
-            <Route path="photos" element={<ListPhotos />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/register" element={<Register />} />
+            <Route path="/" element={<RutaPrivada />}>
+              <Route path="/view/*" element={<View />} />
+            </Route>
             <Route path="/" element={<Login />} />
           </Routes>
         </Router>

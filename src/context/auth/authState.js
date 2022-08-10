@@ -39,7 +39,6 @@ const AuthState = props => {
       });
 
       usuarioAutenticado();
-      obtenerPosts();
     } catch (error) {
       const alerta = {
         msg: error.response.data.error,
@@ -63,7 +62,6 @@ const AuthState = props => {
       });
 
       usuarioAutenticado();
-      obtenerPosts();
     } catch (error) {
       console.log(error);
       const alerta = {
@@ -86,7 +84,6 @@ const AuthState = props => {
 
     try {
       const respuesta = await clientAxios.get("user");
-      console.log("USUARIO OBTENIDO", respuesta.data);
       dispatch({
         type: OBTENER_USUARIO,
         payload: respuesta.data,
@@ -104,7 +101,6 @@ const AuthState = props => {
 
     try {
       const respuesta = await clientAxios.get("posts");
-      console.log("POSTS OBTENIDOS", respuesta.data);
 
       dispatch({
         type: OBTENER_POSTS,
@@ -123,7 +119,6 @@ const AuthState = props => {
 
     try {
       const respuesta = await clientAxios.get(`photos?page=${page}`);
-      console.log("PHOTOS OBTENIDOS", respuesta.data);
 
       dispatch({
         type: OBTENER_PHOTOS,
@@ -133,6 +128,12 @@ const AuthState = props => {
       console.log(error);
     }
   }
+
+  const cerrarSesion = () => {
+    dispatch({
+      type: CERRAR_SESION,
+    });
+  };
 
   return (
     <authContext.Provider
@@ -146,6 +147,7 @@ const AuthState = props => {
         registrarUsuario,
         iniciarSesion,
         usuarioAutenticado,
+        cerrarSesion,
         obtenerPosts,
         obtenerPhotos
       }}
